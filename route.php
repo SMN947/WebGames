@@ -69,8 +69,6 @@
             $route_match_found = false;
 
             foreach (self::$routes as $route) {
-                var_dump($route);
-                echo '<hr>';
                 // If the method matches check the path add basepath to matching string
                 if ($basepath != '' && $basepath != '/') {
                     $route['expression'] = '('.$basepath.')'.$route['expression'];
@@ -95,7 +93,7 @@
                             if ($basepath != '' && $basepath != '/') {
                                 array_shift($matches); // Remove basepath
                             }
-                            print_r($route['private']);
+                            
                             //Validate is login is needed
                             if($route['private']) {
                                 call_user_func_array(self::$loginRequired, Array($path));
